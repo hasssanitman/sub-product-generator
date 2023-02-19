@@ -4,8 +4,8 @@ def old_method(thelist):
     where = 0
     the_result = []
     # Count the number of qualities
-    total_number_of_quality = calculator.calc_total_qualities(thelist)
-    total_number_of_quality = total_number_of_quality['total']
+    calculated = calculator.calc_total_qualities(thelist)
+    total_number_of_quality = calculated['total']
     last_qulity_counter = total_number_of_quality
 
     # Create all records

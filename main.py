@@ -13,18 +13,23 @@ method = ''
 while not method.isdigit() or not method.isnumeric():
     method = input("Select the method (0 = old, 1 = new, 2 = recursive):")
     if method.isdigit() or method.isnumeric():
-        int(method)
+        pass
     else:
         print("Entered number is invalid")
 
+method = int(method)
+
 if method == 1:
     # New Method
-    print(new.mew_method(theList))
+    print("New Method")
+    print(new.new_method(theList))
 elif method == 2:
     # Recursive Method
+    print("Recursive Method")
     print(recursively.rec_method(theList))
 else:
     # Old Method
+    print("Old Method")
     print(old.old_method(theList))
 
 

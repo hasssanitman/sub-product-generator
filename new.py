@@ -1,47 +1,36 @@
 def new_method(thelist):
     import calculator
-    # Variables
-    total_number_of_quality = 1
-    qualities_number = []
-    qualities_counter = []
 
-    # Count the number of qualities
+    # Variables
+    the_result = []
     calculated = calculator.calc_total_qualities(thelist)
     total_number_of_quality = calculated['total']
-    qualities_number = calculated['qualities_number']
 
-    # Count each qualities how many need to print
-    qualities_counter = calculator.calc_qualities_counter(
-        qualities_number, total_number_of_quality)
+    # c => counter
+    # p => pointer
+    # c_p => counter pointer
+    # len => length qualifies
+    the_counter = calculator.calc_the_counter(
+        calculated['len_of_items'], total_number_of_quality)
+    print(the_counter)
+    for i in range(total_number_of_quality):
+        temp_array = []
 
-    print(total_number_of_quality)
-    print(qualities_number)
-    print(qualities_counter)
-# New Method
-# def generate(the_list, index = 0):
-#     if len(the_list[index]['value']) > 0:
-#         vals = the_list[index]['value']
-#         result = []
-#         counter = int(total_number_of_quality / len(vals))
-#         for val in vals:
-#             for i in range(counter):
-#                 if index < len(the_list) - 1:
-#                     result.append([val, generate(the_list, index + 1)])
-#                 else:
-#                     result.append(val)
+        for index, val in enumerate(the_counter):
+            vals = thelist[index]['value']
+            if len(vals):
+                temp_array.append(vals[val['p']])
 
+                if val['c'] != val['c_p'] + 1:
+                    val['c_p'] = val['c_p'] + 1
+                else:
+                    val['c_p'] = 0
+                    val['p'] = val['p'] + 1
 
-#         if index < len(the_list) - 1:
-#             counter = int(total_number_of_quality / len(vals))
-#             regenerate(vals, counter)
-#             for val in vals:
-#                 for i in range(counter):
-#                     if index < len(the_list) - 1:
-#                         result.append([val, generate(the_list, index + 1)])
-#                     else:
-#                         result.append(val)
+                if val['p'] == val['len']:
+                    val['c_p'] = 0
+                    val['p'] = 0
 
+        the_result.append(temp_array)
 
-
-    
-#         return result   
+    return the_result

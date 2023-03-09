@@ -85,16 +85,11 @@ Note: You need three counters:
 
 "counter" To count the number of repetitions of the item in each round of "round_of_game".
    
-
-
-   
 In each execution of the loop, you have a property that contains values.
 
 Check if the values exist then calculate the value of the other 2 counters (counter and round_of_game).
 
-counter indicates how many times a value should be printed in each round.
-
-its amount is obtained according to this formula:
+The counter indicates how many times a value should be printed in each round. It's amount is obtained according to this formula: 
 
 counter = last_qulity_counter / [length of vals]
 
@@ -105,6 +100,8 @@ round_of_game = total_number_of_quality / (counter * [length of vals])
 Now you need to create a loop that runs as long as the round_of_game and prints the values as many counters in each run.
 
 After that the last_qulity_counter must be cahnge to the counter value, and the where value reset to 0.
+
+NOTE: The value of the "counter" and "round-of-game" depends on the value of the previous counter round, and each time the main loop (color, size, sleeve) is executed their value changes.
 
 
 

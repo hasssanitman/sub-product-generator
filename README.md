@@ -12,7 +12,7 @@ The first item is color, the second array is size and the third array is sleeve 
 This is the format:
 
 [
-    
+
     {
         property: 'color',
         values: ['red', 'green', 'blue']
@@ -27,9 +27,8 @@ This is the format:
         property: 'sleeve',
         values: ['short-sleeve', 'long-sleeve']
     },
-    
-]
 
+]
 
 And you expect to get a result similar to the array below:
 
@@ -57,17 +56,16 @@ And you expect to get a result similar to the array below:
 
 }
 
-
-The Old Solution
+<h2>The Old Solution</h2>
 
 First you have to count the number of different modes.
-The formola is this: 
+The formola is this:
 
-array1.lenght * array2.lenght * ...... arrayN.lenght
+array1.lenght _ array2.lenght _ ...... arrayN.lenght
 
 In our case it's 24
 
-color.length * size.length * sleeve.length
+color.length _ size.length _ sleeve.length
 
       3      *      4      *       2      = 24
 
@@ -77,25 +75,25 @@ Then you must create an array that has the number of empty array items obtained.
 
 After that, you have to make a loop from the main array.
 
-Note: You need three counters: 
+Note: You need three counters:
 
 "where" to count the result array.
 
 "round_of_game" To count the number of repetitions of each item.
 
 "counter" To count the number of repetitions of the item in each round of "round_of_game".
-   
+
 In each execution of the loop, you have a property that contains values.
 
 Check if the values exist then calculate the value of the other 2 counters (counter and round_of_game).
 
-The counter indicates how many times a value should be printed in each round. It's amount is obtained according to this formula: 
+The counter indicates how many times a value should be printed in each round. It's amount is obtained according to this formula:
 
 counter = last_qulity_counter / [length of vals]
 
 round_of_game indicates how many rounds each value should be printed. And its amount is obtained according to this formula:
 
-round_of_game = total_number_of_quality / (counter * [length of vals])
+round_of_game = total_number_of_quality / (counter \* [length of vals])
 
 Now you need to create a loop that runs as long as the round_of_game and prints the values as many counters in each run.
 
@@ -103,10 +101,4 @@ After that the last_qulity_counter must be cahnge to the counter value, and the 
 
 NOTE: The value of the "counter" and "round-of-game" depends on the value of the previous counter round, and each time the main loop (color, size, sleeve) is executed their value changes.
 
-title: Example title
-
-
-
-
-
-
+<h2>The New Solution</h2>

@@ -1,4 +1,4 @@
-The Challenge
+<h2>The Challenge</h2>
 
 Imagine that you have an indefinite number of arrays in a colletion, each of which has an indefinite length.
 Now you want to get a new collection of arrays, each value of which is a combination of the values of the original collection so that none of the items are duplicates.

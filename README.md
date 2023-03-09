@@ -13,7 +13,6 @@ This is the format:
 
 
 [
-    
     {
         property: 'color',
         values: ['red', 'green', 'blue']
@@ -28,7 +27,6 @@ This is the format:
         property: 'sleeve',
         values: ['short-sleeve', 'long-sleeve']
     },
-    
 ]
 
 

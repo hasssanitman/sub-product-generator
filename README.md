@@ -103,6 +103,8 @@ After that the last_qulity_counter must be cahnge to the counter value, and the 
 
 NOTE: The value of the "counter" and "round-of-game" depends on the value of the previous counter round, and each time the main loop (color, size, sleeve) is executed their value changes.
 
+title: Example title
+
 
 
 

@@ -46,6 +46,7 @@ And you expect to get a result similar to the array below:
     .
     .
     .
+
     ['blue', 'large', 'short-sleeve'],
 
     ['blue', 'large', 'long-sleeve'],
@@ -60,13 +61,18 @@ And you expect to get a result similar to the array below:
 The Old Solution
 
 First you have to count the number of different modes.
-The formola is this: array1.lenght * array2.lenght * ...... arrayN.lenght
+The formola is this: 
+
+array1.lenght * array2.lenght * ...... arrayN.lenght
 
 In our case it's 24
+
 color.length * size.length * sleeve.length
+
       3      *      4      *       2      = 24
 
 total_number_of_quality = 24
+
 last_qulity_counter = 24
 
 Then you must create an array that has the number of empty array items obtained. In this example, 24 empty arrays in one array.

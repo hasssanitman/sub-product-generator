@@ -10,6 +10,8 @@ Imagine you have an collection as follows:
 The first item is color, the second array is size and the third array is sleeve type.
 
 This is the format:
+
+
 [
     {
         property: 'color',

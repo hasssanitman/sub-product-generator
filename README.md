@@ -32,17 +32,26 @@ This is the format:
 
 
 And you expect to get a result similar to the array below:
+
 {
+
     ['red', 'small', 'short-sleeve'],
+
     ['red', 'small', 'long-sleeve'],
+
     ['red', 'medium', 'short-sleeve'],
+
     ['red', 'medium', 'long-sleeve'],
+
     .
     .
     .
     ['blue', 'large', 'short-sleeve'],
+
     ['blue', 'large', 'long-sleeve'],
+
     ['blue', 'x-large', 'short-sleeve'],
+
     ['blue', 'x-large', 'long-sleeve'],
 
 }

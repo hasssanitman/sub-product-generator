@@ -13,18 +13,22 @@ This is the format:
 
 
 [
+    
     {
         property: 'color',
         values: ['red', 'green', 'blue']
     },
+
     {
         property: 'size',
         values: ['small', 'medium', 'large', 'x-large']
     },
+
     {
         property: 'sleeve',
         values: ['short-sleeve', 'long-sleeve']
     },
+    
 ]
 
 

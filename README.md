@@ -11,8 +11,8 @@ The first item is color, the second array is size and the third array is sleeve 
 
 This is the format:
 
-
 [
+    
     {
         property: 'color',
         values: ['red', 'green', 'blue']
@@ -27,6 +27,7 @@ This is the format:
         property: 'sleeve',
         values: ['short-sleeve', 'long-sleeve']
     },
+    
 ]
 
 

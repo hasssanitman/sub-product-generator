@@ -85,6 +85,7 @@ Note: You need three counters:
 
 "counter" To count the number of repetitions of the item in each round of "round_of_game".
 
+
 In each execution of the loop, you have a property that contains values.
 
 Check if the values exist then calculate the value of the other 2 counters (counter and round_of_game).

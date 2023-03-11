@@ -3,10 +3,10 @@ def get_data(MAX_PROPERTY = 5):
     data = []
     for i in range(MAX_PROPERTY):
         product_property = input(
-            "Please enter quality's name, or type \"End\" to finish (Example: color): ")
+            "Please enter property's name, or type \"Exit\" to finish (Example: color): ")
         product_property = str(product_property)
         product_property = product_property.lower()
-        if product_property == "end":
+        if product_property == "exit":
             break
         values = input("Please enter the values (Seperate by ','): ")
         if values:

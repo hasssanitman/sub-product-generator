@@ -1,6 +1,6 @@
 # Getting data from the user
 def get_data(MAX_PROPERTY = 5):
-    data = []
+    user_data = []
     for i in range(MAX_PROPERTY):
         product_property = input(
             "Please enter property's name, or type \"Exit\" to finish (Example: color): ")
@@ -12,5 +12,5 @@ def get_data(MAX_PROPERTY = 5):
         if values:
             values = values.split(",")
         temp = {'name': product_property, 'value': values}
-        data.append(temp)
-    return data
+        user_data.append(temp)
+    return user_data

@@ -1,27 +1,27 @@
-def calc_total_qualities(thelist):
-    total_number_of_quality = 1
-    len_of_items = []
+def total_sub_products(user_data):
+    total_sub_products = 1
+    len_of_values = []
 
-    if len(thelist) > 0:
-        for index in range(len(thelist)):
-            item_len = len(thelist[index]['value'])
-            total_number_of_quality = total_number_of_quality * item_len
-            len_of_items.append(item_len)
+    if len(user_data) > 0:
+        for index in range(len(user_data)):
+            item_len = len(user_data[index]['value'])
+            total_sub_products = total_sub_products * item_len
+            len_of_values.append(item_len)
 
-    return {'total': total_number_of_quality, 'len_of_items': len_of_items}
+    return {'total': total_sub_products, 'len_of_values': len_of_values}
 
 
-def calc_the_counter(len_of_items, total_number_of_quality):
-    if len(len_of_items) > 0:
-        latest = total_number_of_quality
-        the_counter = []
+def array_of_counters(len_of_values, total_sub_products):
+    if len(len_of_values) > 0:
+        latest = total_sub_products
+        counters = []
 
-        for i in range(len(len_of_items)):
-            temp = {'c': 0, 'c_p': 0, 'p': 0, 'len': 0}
-            temp['c'] = int(latest / len_of_items[i])
-            temp['len'] = len_of_items[i]
-            the_counter.append(temp)
+        for i in range(len(len_of_values)):
+            temp = {'amount': 0, 'a_counter': 0, 'pointer': 0, 'lenght': 0}
+            temp['amount'] = int(latest / len_of_values[i])
+            temp['lenght'] = len_of_values[i]
+            counters.append(temp)
 
-            latest = temp['c']
+            latest = temp['amount']
 
-        return the_counter
+        return counters

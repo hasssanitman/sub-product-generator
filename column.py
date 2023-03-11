@@ -1,31 +1,31 @@
-def column_method(thelist):
+def column_method(user_data):
     import calculator
     # Variables
-    where = 0
-    the_result = []
+    index = 0
+    result = []
     # Count the number of qualities
-    calculated = calculator.calc_total_qualities(thelist)
-    total_number_of_quality = calculated['total']
-    last_qulity_counter = total_number_of_quality
+    calculated = calculator.total_sub_products(user_data)
+    total_sub_products = calculated['total']
+    last_property_counter = total_sub_products
 
     # Create all records
-    for i in range(total_number_of_quality):
-        the_result.append([])
+    for i in range(total_sub_products):
+        result.append([])
 
-    for quality in thelist:
-        vals = quality['value']
-        if len(vals) > 0:
-            counter = int(last_qulity_counter / len(vals))
-            round_of_game = total_number_of_quality / \
-                int((counter * len(vals)))
+    for prop in user_data:
+        values = prop['value']
+        if len(values) > 0:
+            counter = int(last_property_counter / len(values))
+            round_of_game = total_sub_products / \
+                int((counter * len(values)))
 
             while round_of_game > 0:
-                for element in vals:
+                for element in values:
                     for k in range(counter):
-                        the_result[where].append(element)
-                        where += 1
+                        result[index].append(element)
+                        index += 1
                 round_of_game -= 1
                 
-            last_qulity_counter = counter
-            where = 0
-    return the_result
+            last_property_counter = counter
+            index = 0
+    return result

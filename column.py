@@ -1,4 +1,4 @@
-def old_method(thelist):
+def column_method(thelist):
     import calculator
     # Variables
     where = 0

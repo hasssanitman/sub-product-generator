@@ -1,4 +1,4 @@
-def new_method(thelist):
+def row_method(thelist):
     import calculator
 
     # Variables

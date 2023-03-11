@@ -102,3 +102,38 @@ After that the last_qulity_counter must be cahnge to the counter value, and the 
 NOTE: The value of the "counter" and "round-of-game" depends on the value of the previous counter round, and each time the main loop (color, size, sleeve) is executed their value changes.
 
 <h2>The New Solution</h2>
+
+First you have to count the number of different modes.
+The formola is this:
+
+array1.lenght _ array2.lenght _ ...... arrayN.lenght
+
+In our case it's 24
+
+color.length _ size.length _ sleeve.length
+
+      3      *      4      *       2      = 24
+
+total_number_of_quality = 24
+
+Now, you need make an array of counters!
+
+Like this:
+[
+
+    {'c': 0, 'c_p': 0, 'p': 0, 'len': 0} // for color
+
+    {'c': 0, 'c_p': 0, 'p': 0, 'len': 0} // for size
+
+    {'c': 0, 'c_p': 0, 'p': 0, 'len': 0} // for sleeve
+
+]
+
+c => counter
+
+p => pointer
+
+c_p => counter pointer
+
+len => length qualifies
+

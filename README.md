@@ -1,3 +1,15 @@
+# Usage
+
+First, clone the project with the following command:
+```bash
+$ git clone https://github.com/hasssanitman/sub-product-generator.git
+```
+Then enter the project directory. and enter the following command:
+
+```bash
+$ python main.py
+```
+
 # Challenge
 
 Imagine that you have an unspecified number of arrays in set (A), each of which has an unspecified number of items. And you want to have a new collection (B) of arrays that are a combination of the items of the arrays of collection (A).

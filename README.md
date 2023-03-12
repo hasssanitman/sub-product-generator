@@ -1,139 +1,97 @@
-<h2>The Challenge</h2>
+# Challenge
 
-Imagine that you have an indefinite number of arrays in a colletion, each of which has an indefinite length.
-Now you want to get a new collection of arrays, each value of which is a combination of the values of the original collection so that none of the items are duplicates.
+Imagine that you have an unspecified number of arrays in set (A), each of which has an unspecified number of items. And you want to have a new collection (B) of arrays that are a combination of the items of the arrays of collection (A).
 
-Depending on the platform of your application, these collection may be obtained in different ways.
-For example, in the web environment, you may receive this data from the user through HTML forms and you want to perform the combination operation with Javascript.
+There are 2 rules here:
 
-Imagine you have an collection as follows:
-The first item is color, the second array is size and the third array is sleeve type.
+1. Each of the resulting arrays must be unique.
+2. The difference in the order of the items of two similar arrays cannot make them unique.
 
-This is the format:
 
+### Example
+
+In one of the projects called [Carbon](https://www.hasssanitman.ir/casestudy/carbon.html "Carbon") (an online store builder), we mostly focused on clothing stores. A product might have different features, based on the price, the number of stock in stock, and different discounts.
+
+For example, a blouse may have different features, each of which has its own conditions for sale.
+
+| Model           | Features(color,size,sleeve) | Price | In-Stock    |
+|-----------------|-----------------------------|-------|-------------|
+| Blouse-Model X  | Red - Small - Long          | 50$   | 10          |
+| Blouse-Model X  | Red - Small - Short         | 49$   | Out of Stock|   
+| Blouse-Model X  | Green - Large - Short       | 55$   | 20          |   
+| Blouse-Model X  | Red - X-large - Long        | 69$   | 8           |   
+
+If the number of arrays of set A and their items are always known, it will be much easier to solve the problem. But here we are talking about a situation where we do not know how much data the user enters each time!
+
+It is possible that a certain model t-shirt has only two characteristics, color, and size, and it is also monochromatic!
+
+If the store manager tries to manually enter a large number of values every time, there will definitely be a mistake in entering the information. And it may have very bad consequences.
+
+# Solution
+
+I coded in JavaScript in the [Carbon](https://www.hasssanitman.ir/casestudy/carbon.html "Carbon") project, but here I rewrote it in Python.
+You have a set as follows:
+
+The first array is the color, the second array is the size, and the third array is the sleeve type.
+
+with the following format:
+
+```
 [
-
     {
-        property: 'color',
-        values: ['red', 'green', 'blue']
+        property: 'Color',
+        values: ['Red', 'Green', 'Blue']
     },
-
     {
-        property: 'size',
-        values: ['small', 'medium', 'large', 'x-large']
+        property: 'Size',
+        values: ['Small', 'Medium', 'Large', 'X-large']
     },
-
     {
-        property: 'sleeve',
-        values: ['short-sleeve', 'long-sleeve']
+        property: 'Sleeve',
+        values: ['Short-Sleeve', 'Long-Sleeve']
     },
-
 ]
-
+```
 And you expect to get a result similar to the array below:
 
+```
 {
-
-    ['red', 'small', 'short-sleeve'],
-
-    ['red', 'small', 'long-sleeve'],
-
-    ['red', 'medium', 'short-sleeve'],
-
-    ['red', 'medium', 'long-sleeve'],
-
-    .
-    .
-    .
-
-    ['blue', 'large', 'short-sleeve'],
-
-    ['blue', 'large', 'long-sleeve'],
-
-    ['blue', 'x-large', 'short-sleeve'],
-
-    ['blue', 'x-large', 'long-sleeve'],
-
+    ['Red', 'Small', 'Short-Sleeve'],
+    ['Red', 'Small', 'Long-Sleeve'],
+    ['Red', 'Medium', 'Short-Sleeve'],
+    ['Red', 'Medium', 'Long-Sleeve'],
+    ['Red', 'Large', 'Short-Sleeve'],
+    ['Red', 'Large', 'Long-Sleeve'],
+    ['Red', 'X-large', 'Short-Sleeve'],
+    ['Red', 'X-large', 'Long-Sleeve'],
+    ['Green', 'Small', 'Short-Sleeve'],
+    ['Green', 'Small', 'Long-Sleeve'],
+    ['Green', 'Medium', 'Short-Sleeve'],
+    ['Green', 'Medium', 'Long-Sleeve'],
+    ['Green', 'Large', 'Short-Sleeve'],
+    ['Green', 'Large', 'Long-Sleeve'],
+    ['Green', 'X-large', 'Short-Sleeve'],
+    ['Green', 'X-large', 'Long-Sleeve'],
+    ['Blue', 'Small', 'Short-Sleeve'],
+    ['Blue', 'Small', 'Long-Sleeve'],
+    ['Blue', 'Medium', 'Short-Sleeve'],
+    ['Blue', 'Medium', 'Long-Sleeve'],
+    ['Blue', 'Large', 'Short-Sleeve'],
+    ['Blue', 'Large', 'Long-Sleeve'],
+    ['Blue', 'X-large', 'Short-Sleeve'],
+    ['Blue', 'X-large', 'Long-Sleeve'],
 }
+```
 
-<h2>The Old Solution</h2>
+I found a solution to this problem, and I was able to implement it in two ways. **Column** and **Row**
 
-First you have to count the number of different modes.
-The formola is this:
 
-array1.lenght _ array2.lenght _ ...... arrayN.lenght
+Column implementation is really a disaster!
+But Row has a much better algorithm.
 
-In our case it's 24
+Here I put the main solution. Then you can read the codes of both methods.
+Pay attention to the image below:
 
-color.length _ size.length _ sleeve.length
+![image]()
 
-      3      *      4      *       2      = 24
-
-total_number_of_quality = 24
-
-Then you must create an array that has the number of empty array items obtained. In this example, 24 empty arrays in one array.
-
-After that, you have to make a loop from the main array.
-
-Note: You need three counters:
-
-"where" to count the result array.
-
-"round_of_game" To count the number of repetitions of each item.
-
-"counter" To count the number of repetitions of the item in each round of "round_of_game".
-
-In each execution of the loop, you have a property that contains values.
-
-Check if the values exist then calculate the value of the other 2 counters (counter and round_of_game).
-
-The counter indicates how many times a value should be printed in each round. It's amount is obtained according to this formula:
-
-counter = last_qulity_counter / [length of vals]
-
-round_of_game indicates how many rounds each value should be printed. And its amount is obtained according to this formula:
-
-round_of_game = total_number_of_quality / (counter \* [length of vals])
-
-Now you need to create a loop that runs as long as the round_of_game and prints the values as many counters in each run.
-
-After that the last_qulity_counter must be cahnge to the counter value, and the where value reset to 0.
-
-NOTE: The value of the "counter" and "round-of-game" depends on the value of the previous counter round, and each time the main loop (color, size, sleeve) is executed their value changes.
-
-<h2>The New Solution</h2>
-
-First you have to count the number of different modes.
-The formola is this:
-
-array1.lenght _ array2.lenght _ ...... arrayN.lenght
-
-In our case it's 24
-
-color.length _ size.length _ sleeve.length
-
-      3      *      4      *       2      = 24
-
-total_number_of_quality = 24
-
-Now, you need make an array of counters!
-
-Like this:
-[
-
-    {'c': 0, 'c_p': 0, 'p': 0, 'len': 0} // for color
-
-    {'c': 0, 'c_p': 0, 'p': 0, 'len': 0} // for size
-
-    {'c': 0, 'c_p': 0, 'p': 0, 'len': 0} // for sleeve
-
-]
-
-c => counter
-
-p => pointer
-
-c_p => counter pointer
-
-len => length qualifies
 

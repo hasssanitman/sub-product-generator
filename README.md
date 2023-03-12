@@ -92,6 +92,13 @@ But Row has a much better algorithm.
 Here I put the main solution. Then you can read the codes of both methods.
 Pay attention to the image below:
 
-![image]()
+![image](https://raw.githubusercontent.com/hasssanitman/sub-product-generator/master/sub_products.png)
+
+As you can see, the most important point of this algorithm is the correct calculation of `counter` and `round` values.
+
+We have a variable called `last_counter` whose initial value is equal to the value of the `total_sub_products`.
+
+But after the execution of the first loop, its value is equal to the `counter` value of the previous array!
+And based on this value, the `round` value is calculated correctly.
 
 

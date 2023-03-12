@@ -2,12 +2,12 @@
 
 First, clone the project with the following command:
 ```bash
-$ git clone https://github.com/hasssanitman/sub-product-generator.git
+git clone https://github.com/hasssanitman/sub-product-generator.git
 ```
 Then enter the project directory. and enter the following command:
 
 ```bash
-$ python main.py
+python main.py
 ```
 
 # Challenge

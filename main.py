@@ -26,7 +26,7 @@ if method == 1:
 elif method == 2:
     # Recursive Method
     print("Recursive Method")
-    print(recursively.rec_method(user_data))
+    print(recursively.rec_method(user_data, 0))
 else:
     # Column Method
     print("Column Method")
